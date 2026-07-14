@@ -47,3 +47,32 @@ const variations = {
     }
   `,
 };
+
+const Button = styled.button`
+  font-size: 1.4rem;
+  padding: 1.2rem 1.6rem;
+  font-weight: 500;
+
+  border: none;
+  border-radius: var(--border-radius-md);
+
+  box-shadow: var(--shadow-lg);
+
+  ${(props) => sizes[props.size]}
+
+  ${(props) => variations[props.variation]} /* cursor: pointer;
+  &:hover {
+    background-color: var(--color-red-100);
+    color: var(--color-red-700);
+  }
+  transition:
+    background-color 0.8s,
+    color 0.8s; */
+`;
+
+// Button.defaultProps = {
+// variation: "primary",
+// size: "medium",
+// };
+
+export default Button;
