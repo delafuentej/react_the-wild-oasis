@@ -70,9 +70,9 @@ const Button = styled.button`
     color 0.8s; */
 `;
 
-// Button.defaultProps = {
-// variation: "primary",
-// size: "medium",
-// };
+Button.defaultProps = {
+  variation: "primary",
+  size: "medium",
+};
 
 export default Button;

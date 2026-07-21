@@ -1,15 +1,9 @@
-import { useState } from "react";
+import CabinTableAdditional from "../features/cabins/CabinTableAdditional";
+import AddCabin from "../features/cabins/AddCabin";
 
-import CabinTable from "../features/cabins/CabinTable";
-import CreateCabinForm from "../features/cabins/CreateCabinForm";
-import { Heading, Row, Button } from "../ui";
-import { set } from "date-fns";
+import { Heading, Row } from "../ui";
 
 function Cabins() {
-  // useEffect(() => {
-  // getCabins().then((data) => console.log(data));
-  // });
-  const [showForm, setShowForm] = useState(false);
   return (
     <>
       <Row type="horizontal">
@@ -20,12 +14,9 @@ function Cabins() {
       </Row>
 
       <Row>
-        <CabinTable />
-        <Button onClick={() => setShowForm((show) => !show)}>
-          Add new cabin
-        </Button>
-        {showForm && <CreateCabinForm />}
+        <CabinTableAdditional />
       </Row>
+      <AddCabin />
     </>
   );
 }
