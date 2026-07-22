@@ -1,6 +1,6 @@
 import { useCabins } from "./useCabins";
 import CabinRow from "./CabinRow";
-import { Spinner } from "../../ui";
+import { Spinner, Menus } from "../../ui";
 
 import styled from "styled-components";
 
@@ -34,18 +34,20 @@ const CabinTable = () => {
 
   console.log("data", cabins);
   return (
-    <Table role="table">
-      <TableHeader role="row">
-        <div></div>
-        <div>Cabin</div>
-        <div>Capacity</div>
-        <div>Price</div>
-        <div>Discount</div>
-      </TableHeader>
-      {cabins.map((cabin) => (
-        <CabinRow key={cabin.id} cabin={cabin} />
-      ))}
-    </Table>
+    <Menus>
+      <Table role="table">
+        <TableHeader role="row">
+          <div></div>
+          <div>Cabin</div>
+          <div>Capacity</div>
+          <div>Price</div>
+          <div>Discount</div>
+        </TableHeader>
+         {cabins.map((cabin) => (
+          <CabinRow key={cabin.id} cabin={cabin} />
+        ))} 
+      </Table>
+    </Menus>
   );
 };
 

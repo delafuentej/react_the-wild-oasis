@@ -18,7 +18,7 @@ export { default as Heading } from "./Heading";
 export { default as Input } from "./Input";
 // export { default as Logo } from "./Logo";
 //  export { default as MainNav } from "./MainNav";
-// export { default as Menus } from "./Menus";
+export { default as Menus } from "./Menus";
 export { default as Modal } from "./Modal";
 export { default as CompoundModal } from "./CompoundModal";
 // export { default as Pagination } from "./Pagination";

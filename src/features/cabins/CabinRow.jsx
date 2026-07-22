@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { HiSquare2Stack, HiPencil, HiTrash } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
 import { useDeleteCabin } from "./useDeleteCabin";
-import { CompoundModal, ConfirmDelete, Table } from "../../ui";
+import { CompoundModal, ConfirmDelete, Table, Menus } from "../../ui";
 
 import { formatCurrency } from "../../utils/helpers";
 import CreateCabinForm from "./CreateCabinFormUpdate";
@@ -85,24 +85,50 @@ const CabinRow = ({ cabin }) => {
           <span>&mdash;</span>
         )}
         <div>
-          <button onClick={handleDuplicate} disabled={isDeleting || isCreating}>
-            <HiSquare2Stack />
-          </button>
+          {/* <button onClick={handleDuplicate} disabled={isDeleting || isCreating}> */}
+          {/* <HiSquare2Stack /> */}
+          {/* </button> */}
           <CompoundModal>
-            <CompoundModal.Open opens="edit">
-              <button disabled={isDeleting}>
-                <HiPencil />
-              </button>
-            </CompoundModal.Open>
+            <Menus>
+              <Menus.Menu>
+                <Menus.Toggle id={currentId} />
+                <Menus.List id={currentId}>
+                  <Menus.Button
+                    icon={<HiSquare2Stack />}
+                    onClick={handleDuplicate}
+                  >
+                    Duplicate
+                  </Menus.Button>
+
+                  <CompoundModal.Open opens="edit">
+                    <Menus.Button icon={<HiPencil />} onClick={cabin}>
+                      Edit
+                    </Menus.Button>
+                    {/* <button disabled={isDeleting}> */}
+                    {/* <HiPencil /> */}
+                    {/* </button> */}
+                  </CompoundModal.Open>
+
+                  <CompoundModal.Open opens="delete">
+                    {/* <button> */}
+                    {/* <HiTrash /> */}
+                    {/* </button> */}
+
+                    <Menus.Button
+                      icon={<HiTrash />}
+                      onClick={() => deleteCabin(currentId)}
+                    >
+                      Delete
+                    </Menus.Button>
+                  </CompoundModal.Open>
+                </Menus.List>
+              </Menus.Menu>
+            </Menus>
+
             <CompoundModal.Window name="edit">
               <CreateCabinForm cabinToEdit={cabin} />
             </CompoundModal.Window>
 
-            <CompoundModal.Open opens="delete">
-              <button>
-                <HiTrash />
-              </button>
-            </CompoundModal.Open>
             <CompoundModal.Window name="delete">
               <ConfirmDelete
                 resourceName="cabins"

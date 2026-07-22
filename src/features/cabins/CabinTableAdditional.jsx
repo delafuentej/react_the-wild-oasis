@@ -1,6 +1,6 @@
 import { useCabins } from "./useCabins";
 import CabinRow from "./CabinRow";
-import { Spinner, Table } from "../../ui";
+import { Spinner, Table, Menus } from "../../ui";
 
 import styled from "styled-components";
 
